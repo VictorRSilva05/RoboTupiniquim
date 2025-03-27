@@ -24,8 +24,14 @@ namespace RoboTupiniquim.ConsoleApp
             Console.WriteLine($"{PosicaoX} {PosicaoY} {Direcao}");
         }
 
-        public void DefinirPosicaoInicial()
+        public void DefinirPosicaoInicial(string grid)
         {
+            string auxGridX = grid[0].ToString();
+            string auxGridY = grid[1].ToString();
+
+            int gridX = Convert.ToInt32(auxGridX);
+            int gridY = Convert.ToInt32(auxGridY);
+
             Console.WriteLine("\nInsira a posicão inicial do robô:");
             Console.Write("FORMAT X,Y (NO COMMA, SPACED): ");
             string posicao = Console.ReadLine();
@@ -35,14 +41,19 @@ namespace RoboTupiniquim.ConsoleApp
             int posicaoX = default;
             int posicaoY = default;
 
+
             while (!int.TryParse(auxPosicaoX, out posicaoX) || (!int.TryParse(auxPosicaoY, out posicaoY)))
             {
+            ForaDoGrid:
                 Console.Write("Valores inválidos, tente novamente: ");
                 posicao = Console.ReadLine();
 
                 auxPosicaoX = posicao[0].ToString();
                 auxPosicaoY = posicao[2].ToString();
             }
+
+            PosicaoX = posicaoX;
+            PosicaoY = posicaoY;
         }
     }
 }

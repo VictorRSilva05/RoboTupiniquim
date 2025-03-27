@@ -10,9 +10,11 @@
 
             Visualizacao.ApresentarEmpresa();
 
-            string tamanhoGrid = Visualizacao.CriarMapa();
+            string grid = Visualizacao.CriarMapa();
 
-            robo1.DefinirPosicaoInicial();
+            robo1.DefinirPosicaoInicial(grid);
+
+            robo1.MostrarPosicaoAtual();
         }
     }
 }
