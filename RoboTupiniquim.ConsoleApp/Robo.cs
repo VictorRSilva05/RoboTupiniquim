@@ -23,6 +23,9 @@ namespace RoboTupiniquim.ConsoleApp
         {
             Console.WriteLine();
             Console.WriteLine($"{PosicaoX} {PosicaoY} {Direcao}");
+            Console.WriteLine();
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
         }
 
         public void DefinirPosicaoInicial(string grid)

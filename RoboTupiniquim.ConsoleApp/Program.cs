@@ -13,10 +13,14 @@
             string grid = Visualizacao.CriarMapa();
 
             robo1.DefinirPosicaoInicial(grid);
-
             robo1.MovimentarRobo();
-
             robo1.MostrarPosicaoAtual();
+
+            Console.Clear();
+
+            robo2.DefinirPosicaoInicial(grid);
+            robo2.MovimentarRobo();
+            robo2.MostrarPosicaoAtual();
         }
     }
 }
