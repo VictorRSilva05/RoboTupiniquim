@@ -28,10 +28,10 @@ namespace RoboTupiniquim.ConsoleApp
             Console.ReadKey();
         }
 
-        public void DefinirPosicaoInicial(string grid)
+        public void DefinirPosicaoInicial(string[] grid)
         {
-            string auxGridX = grid[0].ToString();
-            string auxGridY = grid[1].ToString();
+            string auxGridX = grid[0];
+            string auxGridY = grid[1];
 
             int gridX = Convert.ToInt32(auxGridX);
             int gridY = Convert.ToInt32(auxGridY);
@@ -40,7 +40,7 @@ namespace RoboTupiniquim.ConsoleApp
             Console.Write("FORMAT 'X, Y, (Direction)' NO COMMA, SPACED: ");
             string posicao = Console.ReadLine();
             string auxPosicaoX = posicao[0].ToString();
-            string auxPosicaoY = posicao[2].ToString();
+            string auxPosicaoY = posicao[1].ToString();
             char auxDirecao = posicao[4];
 
             int posicaoX = default;

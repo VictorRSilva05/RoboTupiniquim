@@ -28,14 +28,17 @@ namespace RoboTupiniquim.ConsoleApp
             Console.WriteLine("Pressione qualquer tecla para continuar: ");
             Console.ReadKey();
         }
-        public static string CriarMapa()
+        public static string[] CriarMapa()
         {
             Console.Clear();
             Console.WriteLine("Insira o tamanho do grid:");
             Console.Write("FORMAT X,Y (NO COMMA, SPACED): ");
-            string posicao = Console.ReadLine();
-            string auxPosicaoX = posicao[0].ToString();
-            string auxPosicaoY = posicao[2].ToString();
+            string auxPosicao = Console.ReadLine();
+
+            string[] posicao = auxPosicao.Split(' ', '\t');
+
+            string auxPosicaoX = posicao[0];
+            string auxPosicaoY = posicao[1];
 
             int posicaoX = default;
             int posicaoY = default;
@@ -43,14 +46,15 @@ namespace RoboTupiniquim.ConsoleApp
             while (!int.TryParse(auxPosicaoX, out posicaoX) || (!int.TryParse(auxPosicaoY, out posicaoY)))
             {
                 Console.Write("Valores inválidos, tente novamente: ");
-                posicao = Console.ReadLine();
+                auxPosicao = Console.ReadLine();
 
-                auxPosicaoX = posicao[0].ToString();
-                auxPosicaoY = posicao[2].ToString();
+                posicao = auxPosicao.Split(' ', '\t');
+
+                auxPosicaoX = posicao[0];
+                auxPosicaoY = posicao[1];
             }
-            string grid = String.Concat(new int[] { posicaoX, posicaoY });
-
-            return grid;
+            
+            return posicao;
         }
 
     }
