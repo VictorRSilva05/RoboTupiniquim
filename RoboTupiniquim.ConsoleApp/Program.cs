@@ -14,7 +14,7 @@
 
             robo1.DefinirPosicaoInicial(grid);
 
-            robo1.MostrarPosicaoAtual();
+            robo1.MovimentarRobo();
         }
     }
 }

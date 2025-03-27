@@ -21,6 +21,7 @@ namespace RoboTupiniquim.ConsoleApp
 
         public void MostrarPosicaoAtual()
         {
+            Console.WriteLine();
             Console.WriteLine($"{PosicaoX} {PosicaoY} {Direcao}");
         }
 
@@ -33,18 +34,18 @@ namespace RoboTupiniquim.ConsoleApp
             int gridY = Convert.ToInt32(auxGridY);
 
             Console.WriteLine("\nInsira a posicão inicial do robô:");
-            Console.Write("FORMAT X,Y (NO COMMA, SPACED): ");
+            Console.Write("FORMAT 'X, Y, (Direction)' NO COMMA, SPACED: ");
             string posicao = Console.ReadLine();
             string auxPosicaoX = posicao[0].ToString();
             string auxPosicaoY = posicao[2].ToString();
+            char auxDirecao = posicao[4];
 
             int posicaoX = default;
             int posicaoY = default;
-
+            string direcao = auxDirecao.ToString().ToUpper();
 
             while (!int.TryParse(auxPosicaoX, out posicaoX) || (!int.TryParse(auxPosicaoY, out posicaoY)))
             {
-            ForaDoGrid:
                 Console.Write("Valores inválidos, tente novamente: ");
                 posicao = Console.ReadLine();
 
@@ -54,6 +55,41 @@ namespace RoboTupiniquim.ConsoleApp
 
             PosicaoX = posicaoX;
             PosicaoY = posicaoY;
+            Direcao = Convert.ToChar(direcao);
+        }
+
+        public void MovimentarRobo()
+        {
+            Console.Clear();
+            Console.Write("CURRENT POSITION");
+            MostrarPosicaoAtual();
+            Console.WriteLine("\nCONTROLS");
+            Console.WriteLine();
+            Console.WriteLine("E - Virar 90º para esquerda");
+            Console.WriteLine("D - Virar 90º para direita");
+            Console.WriteLine("M - Move uma posição na direção que está olhando");
+
+            Console.Write("Insira a string de comando: ");
+            string comandos = Console.ReadLine();
+
+            foreach (var comando in comandos)
+            {
+                switch (comando)
+                {
+                    case 'E':
+
+                        break;
+                    case 'D':
+
+                        break;
+                    case 'M':
+
+                        break;
+                    default:
+
+                        break;
+                }
+            }
         }
     }
 }

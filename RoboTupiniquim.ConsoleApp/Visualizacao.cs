@@ -10,7 +10,7 @@ namespace RoboTupiniquim.ConsoleApp
     {
         public static void ApresentarEmpresa()
         {
-           
+
             string bootScreen = @"
 
  _____           _       _             _           
@@ -48,7 +48,7 @@ namespace RoboTupiniquim.ConsoleApp
                 auxPosicaoX = posicao[0].ToString();
                 auxPosicaoY = posicao[2].ToString();
             }
-             string grid = String.Concat(new int[] {posicaoX, posicaoY});
+            string grid = String.Concat(new int[] { posicaoX, posicaoY });
 
             return grid;
         }
