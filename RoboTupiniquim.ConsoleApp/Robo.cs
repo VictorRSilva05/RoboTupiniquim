@@ -38,22 +38,28 @@ namespace RoboTupiniquim.ConsoleApp
 
             Console.WriteLine("\nInsira a posicão inicial do robô:");
             Console.Write("FORMAT 'X, Y, (Direction)' NO COMMA, SPACED: ");
-            string posicao = Console.ReadLine();
-            string auxPosicaoX = posicao[0].ToString();
-            string auxPosicaoY = posicao[1].ToString();
-            char auxDirecao = posicao[4];
+            string auxPosicao = Console.ReadLine();
+
+            string[] posicao = auxPosicao.Split(' ', '\t');
+
+            string auxPosicaoX = posicao[0];
+            string auxPosicaoY = posicao[1];
+
+            string direcao = posicao[2].ToString().ToUpper();
 
             int posicaoX = default;
             int posicaoY = default;
-            string direcao = auxDirecao.ToString().ToUpper();
 
-            while (!int.TryParse(auxPosicaoX, out posicaoX) || (!int.TryParse(auxPosicaoY, out posicaoY)))
+            while (!int.TryParse(auxPosicaoX, out posicaoX) || (!int.TryParse(auxPosicaoY, out posicaoY)) || 
+                (direcao != "N") && (direcao != "S") && (direcao != "L") && (direcao != "O"))
             {
                 Console.Write("Valores inválidos, tente novamente: ");
-                posicao = Console.ReadLine();
+                auxPosicao = Console.ReadLine();
+                posicao = auxPosicao.Split(' ', '\t');
 
-                auxPosicaoX = posicao[0].ToString();
-                auxPosicaoY = posicao[2].ToString();
+                auxPosicaoX = posicao[0];
+                auxPosicaoY = posicao[1];
+                direcao = posicao[2].ToString().ToUpper();
             }
 
             PosicaoX = posicaoX;

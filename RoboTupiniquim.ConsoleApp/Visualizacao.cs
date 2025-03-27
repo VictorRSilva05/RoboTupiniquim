@@ -52,10 +52,8 @@ namespace RoboTupiniquim.ConsoleApp
 
                 auxPosicaoX = posicao[0];
                 auxPosicaoY = posicao[1];
-            }
-            
+            }          
             return posicao;
         }
-
     }
 }
