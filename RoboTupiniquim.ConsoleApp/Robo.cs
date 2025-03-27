@@ -70,23 +70,43 @@ namespace RoboTupiniquim.ConsoleApp
             Console.WriteLine("M - Move uma posição na direção que está olhando");
 
             Console.Write("Insira a string de comando: ");
-            string comandos = Console.ReadLine();
+            string comandos = Console.ReadLine().ToUpper();
 
             foreach (var comando in comandos)
             {
                 switch (comando)
                 {
                     case 'E':
-
+                        if (Direcao == 'N')
+                            Direcao = 'O';
+                        else if (Direcao == 'O')
+                            Direcao = 'S';
+                        else if (Direcao == 'S')
+                            Direcao = 'L';
+                        else if (Direcao == 'L')
+                            Direcao = 'N';
                         break;
                     case 'D':
-
-                        break;
+                        if (Direcao == 'N')
+                            Direcao = 'L';
+                        else if (Direcao == 'L')
+                            Direcao = 'S';
+                        else if (Direcao == 'S')
+                            Direcao = 'O';
+                        else if (Direcao == 'O')
+                            Direcao = 'N';
+                            break;
                     case 'M':
-
-                        break;
+                        if (Direcao == 'N')
+                            PosicaoY++;
+                        else if (Direcao == 'S')
+                            PosicaoY--;
+                        else if (Direcao == 'L')
+                            PosicaoX++;
+                        else if(Direcao == 'O')
+                            PosicaoX--;
+                            break;
                     default:
-
                         break;
                 }
             }
