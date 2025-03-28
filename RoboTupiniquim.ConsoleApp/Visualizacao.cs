@@ -23,15 +23,38 @@ namespace RoboTupiniquim.ConsoleApp
           |_|                 |_|                  
 
 ";
+            Console.WriteLine("Initializing system...");
+            Thread.Sleep(2000);
+            Console.WriteLine("Welcome to GRUB!");
+            Thread.Sleep(500);
+            Console.Write("\nCPU Cortex-A720 Arm64x : ");
+            Thread.Sleep(1000);
+            Console.Write("CHECK");
+            Console.Write("\nRAM 65536Mb: ");
+            Thread.Sleep(1000);
+            Console.Write("CHECK");
+            Console.Write("\nDISK 1 CrucialT205 2048Gb: ");
+            Thread.Sleep(1000);
+            Console.Write("CHECK");
+            Console.Write("\nDISK 2 CrucialT205 2048Gb:");
+            Thread.Sleep(1000);
+            Console.Write("CHECK");
+            Console.WriteLine("\nChecking for any USB devices...");
+            Thread.Sleep(1000);
+            Console.WriteLine();
+            Console.WriteLine("\nUser Id confirmed");
+            Console.WriteLine("Link stabilished");
             Console.WriteLine(bootScreen);
-            Console.WriteLine("A joint venture from AEB and AP");
-            Console.WriteLine("Pressione qualquer tecla para continuar: ");
+            Console.WriteLine("A joint venture from AEB (Agência Nacional Brasileira) and AP (Academia do Programador)");
+            Console.WriteLine("*for registred use only");
+            Console.WriteLine("Academia do programador 2025 All rights reserved.");
+            Console.WriteLine("\n\nPress any key to continue...");
             Console.ReadKey();
         }
         public static string[] CriarMapa()
         {
             Console.Clear();
-            Console.WriteLine("Insira o tamanho do grid:");
+            Console.WriteLine("Insert the size of the grid down below:");
             Console.Write("FORMAT X,Y (NO COMMA, SPACED): ");
             string auxPosicao = Console.ReadLine();
 
@@ -45,7 +68,7 @@ namespace RoboTupiniquim.ConsoleApp
 
             while (!int.TryParse(auxPosicaoX, out posicaoX) || (!int.TryParse(auxPosicaoY, out posicaoY)))
             {
-                Console.Write("Valores inválidos, tente novamente: ");
+                Console.Write("Invalid values! Try again: ");
                 auxPosicao = Console.ReadLine();
 
                 posicao = auxPosicao.Split(' ', '\t');

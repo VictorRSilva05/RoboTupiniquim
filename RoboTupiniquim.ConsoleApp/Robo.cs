@@ -36,7 +36,7 @@ namespace RoboTupiniquim.ConsoleApp
             int gridX = Convert.ToInt32(auxGridX);
             int gridY = Convert.ToInt32(auxGridY);
 
-            Console.WriteLine("\nInsira a posicão inicial do robô:");
+            Console.WriteLine("\nInsert the robot initial position down below:");
             Console.Write("FORMAT 'X, Y, (Direction)' NO COMMA, SPACED: ");
             string auxPosicao = Console.ReadLine();
 
@@ -53,7 +53,7 @@ namespace RoboTupiniquim.ConsoleApp
             while (!int.TryParse(auxPosicaoX, out posicaoX) || (!int.TryParse(auxPosicaoY, out posicaoY)) || 
                 (direcao != "N") && (direcao != "S") && (direcao != "L") && (direcao != "O"))
             {
-                Console.Write("Valores inválidos, tente novamente: ");
+                Console.Write("Invalid values! Try again: ");
                 auxPosicao = Console.ReadLine();
                 posicao = auxPosicao.Split(' ', '\t');
 
@@ -74,9 +74,9 @@ namespace RoboTupiniquim.ConsoleApp
             MostrarPosicaoAtual();
             Console.WriteLine("\nCONTROLS");
             Console.WriteLine();
-            Console.WriteLine("E - Virar 90º para esquerda");
-            Console.WriteLine("D - Virar 90º para direita");
-            Console.WriteLine("M - Move uma posição na direção que está olhando");
+            Console.WriteLine("E - Turn 90º to the left");
+            Console.WriteLine("D - Turn 90º to the right");
+            Console.WriteLine("M - Move one direction to the current position it's facing to");
 
             Console.Write("Insira a string de comando: ");
             string comandos = Console.ReadLine().ToUpper();
