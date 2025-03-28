@@ -30,13 +30,10 @@ public class Robo
         return posicao;
     }
 
-    public void DefinirPosicaoInicial(string[] grid)
+    public void DefinirPosicaoInicial(int[] grid)
     {
-        string auxGridX = grid[0];
-        string auxGridY = grid[1];
-
-        int gridX = Convert.ToInt32(auxGridX);
-        int gridY = Convert.ToInt32(auxGridY);
+        int gridX = grid[0];
+        int gridY = grid[1];
 
         Console.WriteLine("\nInsert the robot initial position down below:");
         Console.Write("FORMAT 'X, Y, (Direction)' NO COMMA, SPACED: ");
@@ -69,13 +66,10 @@ public class Robo
         Direcao = Convert.ToChar(direcao);
     }
 
-    public void MovimentarRobo(string[] grid)
+    public void MovimentarRobo(int[] grid)
     {
-        string auxGridX = grid[0];
-        string auxGridY = grid[1];
-
-        int gridX = Convert.ToInt32(auxGridX);
-        int gridY = Convert.ToInt32(auxGridY);
+        int gridX = grid[0];
+        int gridY = grid[1];
 
         Console.Clear();
         Console.Write("CURRENT POSITION");

@@ -56,7 +56,7 @@ public static class Visualizacao
         Console.WriteLine("\n\nPress any key to continue...");
         Console.ReadKey();
     }
-    public static string[] CriarMapa()
+    public static int[] CriarMapa()
     {
         Console.Clear();
         Console.WriteLine("Insert the size of the grid down below:");
@@ -81,19 +81,18 @@ public static class Visualizacao
             auxPosicaoX = posicao[0];
             auxPosicaoY = posicao[1];
         }
-        return posicao;
+        int[] mapa = {posicaoX, posicaoY};
+
+        return mapa;
     }
 
-    public static void DesenharMapa(string[] grid, int[] posicao)
+    public static void DesenharMapa(int[] grid, int[] posicao)
     {
-        string auxGridX = grid[0];
-        string auxGridY = grid[1];
-
         int posicaoX = posicao[0];
         int posicaoY = posicao[1];
 
-        int gridX = Convert.ToInt32(auxGridX);
-        int gridY = Convert.ToInt32(auxGridY);
+        int gridX = grid[0];
+        int gridY = grid[1];
 
         for (int i = gridY; i >= 0; i--)
         {
