@@ -11,12 +11,14 @@ namespace RoboTupiniquim.ConsoleApp
         public int PosicaoX { get; set; }
         public int PosicaoY { get; set; }
         public char Direcao { get; set; }
+        public bool OutOfBound { get; set; }
 
         public Robo()
         {
             PosicaoX = 0;
             PosicaoY = 0;
             Direcao = 'N';
+            OutOfBound = false;
         }
 
         public void MostrarPosicaoAtual()
@@ -67,8 +69,14 @@ namespace RoboTupiniquim.ConsoleApp
             Direcao = Convert.ToChar(direcao);
         }
 
-        public void MovimentarRobo()
+        public void MovimentarRobo(string[] grid)
         {
+            string auxGridX = grid[0];
+            string auxGridY = grid[1];
+
+            int gridX = Convert.ToInt32(auxGridX);
+            int gridY = Convert.ToInt32(auxGridY);
+
             Console.Clear();
             Console.Write("CURRENT POSITION");
             MostrarPosicaoAtual();
@@ -78,11 +86,17 @@ namespace RoboTupiniquim.ConsoleApp
             Console.WriteLine("D - Turn 90º to the right");
             Console.WriteLine("M - Move one direction to the current position it's facing to");
 
-            Console.Write("Insira a string de comando: ");
+            Console.Write("Insert the command string: ");
             string comandos = Console.ReadLine().ToUpper();
 
             foreach (var comando in comandos)
             {
+                if(PosicaoX < 0 || PosicaoY < 0 || PosicaoX > gridX || PosicaoY > gridY)
+                {
+                    Console.WriteLine("The robot is out of bounds!");
+                    OutOfBound = true;
+                    return;
+                }
                 switch (comando)
                 {
                     case 'E':
