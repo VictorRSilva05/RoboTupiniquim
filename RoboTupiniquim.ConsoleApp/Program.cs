@@ -1,28 +1,26 @@
-﻿namespace RoboTupiniquim.ConsoleApp
+﻿namespace RoboTupiniquim.ConsoleApp;
+
+internal class Program
 {
-    internal class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Robo robo1 = new Robo();
-            Robo robo2 = new Robo();
+        Console.ForegroundColor = ConsoleColor.Green;
+        Robo robo1 = new Robo();
+        Robo robo2 = new Robo();
 
-            //Visualizacao.ApresentarEmpresa();
+        Visualizacao.ApresentarEmpresa();
 
-            string[] grid = Visualizacao.CriarMapa();
+        string[] grid = Visualizacao.CriarMapa();
 
+        robo1.DefinirPosicaoInicial(grid);
+        robo1.MovimentarRobo(grid);
+        Visualizacao.DesenharMapa(grid,robo1.RetornarPosicao());
+        
+        Console.Clear();
 
-            robo1.DefinirPosicaoInicial(grid);
+        robo2.DefinirPosicaoInicial(grid);
+        robo2.MovimentarRobo(grid);
+        Visualizacao.DesenharMapa(grid, robo2.RetornarPosicao());
 
-            robo1.MovimentarRobo(grid);
-            robo1.MostrarPosicaoAtual();
-
-            Console.Clear();
-
-            robo2.DefinirPosicaoInicial(grid);
-            robo2.MovimentarRobo(grid);
-            robo2.MostrarPosicaoAtual();
-        }
     }
 }

@@ -59,5 +59,36 @@ namespace RoboTupiniquim.ConsoleApp.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] _HQ__Old_computer_beep_sound_effect {
+            get {
+                object obj = ResourceManager.GetObject("[HQ] Old computer beep sound effect", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Ace_Combat_3_Electrosphere_Tribute___Animated_Data_Swallow_40_IntrosStartupsBoot__HD_ {
+            get {
+                object obj = ResourceManager.GetObject("Ace Combat 3 Electrosphere Tribute - Animated Data Swallow 40 IntrosStartupsBoot " +
+                        "(HD)", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Link_estabilished {
+            get {
+                object obj = ResourceManager.GetObject("Link estabilished", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }
