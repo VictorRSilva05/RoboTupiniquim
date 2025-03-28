@@ -5,14 +5,14 @@ public class Robo
     public int PosicaoX { get; set; }
     public int PosicaoY { get; set; }
     public char Direcao { get; set; }
-    public bool OutOfBound { get; set; }
+    public bool OutOfBounds { get; set; }
 
     public Robo()
     {
         PosicaoX = 0;
         PosicaoY = 0;
         Direcao = 'N';
-        OutOfBound = false;
+        OutOfBounds = false;
     }
 
     public void MostrarPosicaoAtual()
@@ -26,7 +26,7 @@ public class Robo
 
     public int[] RetornarPosicao()
     {
-        int[] posicao = {PosicaoX, PosicaoY};
+        int[] posicao = { PosicaoX, PosicaoY };
         return posicao;
     }
 
@@ -49,7 +49,7 @@ public class Robo
         int posicaoX = default;
         int posicaoY = default;
 
-        while (!int.TryParse(auxPosicaoX, out posicaoX) || (!int.TryParse(auxPosicaoY, out posicaoY)) || 
+        while (!int.TryParse(auxPosicaoX, out posicaoX) || (!int.TryParse(auxPosicaoY, out posicaoY)) ||
             (direcao != "N") && (direcao != "S") && (direcao != "L") && (direcao != "O"))
         {
             Console.Write("Invalid values! Try again: ");
@@ -85,10 +85,10 @@ public class Robo
 
         foreach (var comando in comandos)
         {
-            if(PosicaoX < 0 || PosicaoY < 0 || PosicaoX > gridX || PosicaoY > gridY)
+            if (PosicaoX < 0 || PosicaoY < 0 || PosicaoX > gridX || PosicaoY > gridY)
             {
                 Console.WriteLine("The robot is out of bounds!");
-                OutOfBound = true;
+                OutOfBounds = true;
                 return;
             }
             switch (comando)
@@ -112,7 +112,7 @@ public class Robo
                         Direcao = 'O';
                     else if (Direcao == 'O')
                         Direcao = 'N';
-                        break;
+                    break;
                 case 'M':
                     if (Direcao == 'N')
                         PosicaoY++;
@@ -120,12 +120,19 @@ public class Robo
                         PosicaoY--;
                     else if (Direcao == 'L')
                         PosicaoX++;
-                    else if(Direcao == 'O')
+                    else if (Direcao == 'O')
                         PosicaoX--;
-                        break;
+                    break;
                 default:
                     break;
             }
         }
+    }
+    public bool PosicaOcupada(Robo robo)
+    {
+        if(PosicaoX == robo.PosicaoX && PosicaoY == robo.PosicaoY)
+            return true;
+        else
+            return false;
     }
 }
