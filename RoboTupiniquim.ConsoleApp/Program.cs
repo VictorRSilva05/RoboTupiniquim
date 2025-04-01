@@ -3,7 +3,7 @@
 internal class Program
 {
     static void Main(string[] args)
-    {
+    {       
         Console.ForegroundColor = ConsoleColor.Green;
         Robo robo1 = new Robo();
         Robo robo2 = new Robo();
@@ -22,7 +22,7 @@ internal class Program
         robo2.DefinirPosicaoInicial(grid);
         robo2.MovimentarRobo(grid);
         robo2.MostrarPosicaoAtual();
-        if (robo2.PosicaOcupada(robo1) == true)
+        if (robo2.PosicaoOcupada(robo1) == true)
             Console.WriteLine("FATAL: THE ROBOT HAS CRASHED INTO THE OTHER!");
         else
             Visualizacao.DesenharMapa(grid, robo2.RetornarPosicao());
